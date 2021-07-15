@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go to Tours</title>
+</head>
+<style>
+    *,
+    ::before,
+    ::after {
+
+        box-sizing: border-box;
+    }
+
+    body {
+        padding: 0px;
+        margin: 0px;
+        background-color: black;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 4000px;
+    }
+
+    /* header{
+        position: static;
+    } */
+
+    .nav-left {
+
+        display: inline-block;
+        position: absolute;
+        top: 21px;
+        left: 63px;
+        padding: 2px 0px;
+        margin: auto;
+
+    }
+
+    .nav-right {
+
+        display: inline-block;
+        position: absolute;
+        top: 21px;
+        right: 55px;
+        padding: 18px 30px;
+        margin: auto;
+    }
+
+    .nav-center {
+
+        display: flex;
+        width: 740px;
+        position: absolute;
+        top: 22px;
+        left: 285px;
+    }
+
+    .nav-center li {
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+        padding: 9px 28px;
+        font-weight: 400;
+        font-size: 20px;
+        
+    }
+
+    .nav-center li a {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all .8s ease;
+    }
+
+    .nav-center li a:hover,
+    .nav-center li a.active {
+        text-decoration: underline;
+        color: black;
+    }
+
+    .logo-img {
+        width: 23px;
+        display: inline-flex;
+        flex-direction: row;
+        margin: 4px 10px;
+    }
+
+    .nav-right img:hover {
+        cursor: pointer;
+    }
+
+    .container {
+        /* border: 2px solid red; */
+        position: absolute;
+        top: 151px;
+        left: 100px;
+        width: 988px;
+        /* background-color: black; */
+    }
+
+    .container h1 {
+        font-size: 5em;
+    }
+
+    .container p {
+        text-align: center;
+    }
+
+    a[class='btn'] {
+        /* background-color: transparent; */
+        text-decoration: none;
+        padding: 15px 40px;
+        color: white;
+        border: 2px solid white;
+        display: block;
+        margin: 50px auto;
+        width: 190px;
+        border-radius: 50px;
+        transition-property: all;
+        transition-duration: .5s;
+        transition-timing-function: ease-in-out;
+
+
+    }
+
+    a[class='btn']:hover {
+        background-color: rgb(182, 113, 151);
+    }
+
+    header::before {
+        content: "";
+        background-image: url('img/header.jpg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: fixed;
+        position: absolute;
+        width: 100vw;
+        height: 105vh;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+        opacity: 0.5;
+        /* background-color: black; */
+    }
+
+    .header-plane img {
+        display: flex;
+        width: 240px;
+        height: 190px;
+        position: absolute;
+        top: 70px;
+        animation: plane 2s ease-in-out 0.1s forwards;
+    }
+
+    @keyframes plane {
+        0% {
+            top: 70px;
+            left: 0px;
+        }
+
+        75% {
+            top: 70px;
+            left: 1020px;
+        }
+
+        100% {
+            top: 145px;
+            left: 1020px;
+        }
+    }
+
+    .sec-container {
+        /* border: 2px solid red; */
+        display: flex;
+        position: absolute;
+        top: 800px;
+        height: 110vh;
+        width: 99.8vw;
+        color: rgb(83, 74, 74);
+        background-color: white;
+        box-shadow: 2px 2px 10px #d2cfcf, -2px -2px 10px #d2cfcf;
+    }
+
+    .prob {
+        /* border: 2px solid green; */
+        height: 30px;
+        position: absolute;
+        top: 40px;
+        display: flex;
+        width: 98vw;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        color: black;
+
+    }
+
+    .h2 h2 {
+        /* border: 2px solid red; */
+        display: flex;
+        margin: auto;
+        width: 97vw;
+        margin: 4px;
+        /* padding: 8px; */
+        align-items: center;
+        justify-content: center;
+        font-size: 2.6em;
+        color: rgb(170, 75, 127);
+        padding-bottom: 100px;
+    }
+
+    .main-box {
+        /* border: 2px solid black; */
+        height: 70vh;
+        width: 92vw;
+        display: flex;
+        position: absolute;
+        top: 92px;
+        left: 25px;
+        box-shadow: 5px 5px 10px #d2cfcf, -5px -5px 10px #d2cfcf;
+    }
+
+    .box-1 {
+        /* border: 2px solid red; */
+        position: absolute;
+        width: 441px;
+        top: 9px;
+        left: 730px;
+        height: 440px;
+        padding: 10px;
+    }
+
+    .third-p {
+        font-size: 20px;
+        padding: 14px 0px;
+        text-align: right;
+
+    }
+
+    .box-1 h1 {
+        text-align: right;
+        font-size: 1.3rem;
+        color: rgb(44, 36, 36);
+    }
+
+    .box-1 button {
+        background-color: rgb(170, 75, 127);
+        position: relative;
+        top: 21px;
+        left: 250px;
+        color: white;
+        padding: 15px 37px;
+        margin: 5px;
+        text-decoration: none;
+        border: none;
+        transition: all 1s ease-in-out;
+        font-size: 20px;
+    }
+
+    button[class='btn-2']:hover {
+        cursor: pointer;
+        background-color: rgb(236, 82, 170);
+    }
+
+    .inform {
+        display: flex;
+        color: white;
+    }
+
+    .left-1 {
+        position: absolute;
+        top: 150px;
+        left: 35px;
+        width: 200px;
+        height: 220px;
+        background-color: rgb(170, 75, 127);
+        transition: all 1s ease-in-out;
+    }
+
+    .left-1:hover {
+        z-index: 1;
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+
+    .left-1 img {
+        display: flex;
+        width: 200px;
+        height: 100px;
+    }
+
+    .left-1 h3 {
+        position: relative;
+        top: -10px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;
+    }
+
+    .left-1 p {
+        position: relative;
+        top: -17px;
+        text-align: justify;
+    }
+
+    .left-2 {
+        position: absolute;
+        top: 70px;
+        left: 155px;
+        /* border: 2px solid red; */
+        width: 200px;
+        height: 230px;
+        background-color: rgb(170, 75, 127);
+    }
+
+    .left-2 img {
+        display: flex;
+        width: 200px;
+        height: 150px;
+    }
+
+    .left-2 h3 {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: center;
+    }
+
+    .right-1 {
+        position: absolute;
+        top: 150px;
+        left: 520px;
+        width: 200px;
+        height: 220px;
+        background-color: rgb(170, 75, 127);
+        font-size: 1.3rem;
+        transition: all 1s ease-in-out;
+    }
+
+    .right-1:hover {
+        z-index: 1;
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+
+    .right-1 h3 {
+        font-size: 1.20rem;
+        text-align: center;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        top: -10px;
+        position: relative;
+    }
+
+    .right-1 img {
+        display: flex;
+        width: 200px;
+        height: 150px;
+    }
+
+
+    .right-2 {
+        position: absolute;
+        top: 70px;
+        left: 410px;
+        width: 200px;
+        height: 230px;
+        background-color: rgb(170, 75, 127);
+        font-size: 1.3rem;
+
+    }
+
+    .right-2 h3 {
+        text-align: center;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .right-2 img {
+        display: flex;
+        width: 200px;
+        height: 150px;
+
+    }
+
+    .third-container {
+        /* border: 2px solid red; */
+        background-color: white;
+        position: absolute;
+        top: 670px;
+        display: block;
+        width: 99.1vw;
+        height: 110vh;
+        color: white;
+        box-shadow: 2px 2px 10px #d2cfcf, -2px -2px 10px #d2cfcf;
+    }
+
+    .hd {
+        position: relative;
+        left: 100px;
+        top: -20px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-seri
+    }
+
+    .hd h3 {
+        font-size: 2em;
+        color: rgb(170, 75, 127);
+    }
+
+    .hd p {
+        position: relative;
+        top: -20px;
+        color: black;
+        font-size: 20px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .pic-1-container {
+        /* border: 2px solid white; */
+        width: 380px;
+        height: 500px;
+        position: relative;
+        top: -40px;
+        left: 40px;
+        background-color: rgb(170, 75, 127);
+        transition: all .5s ease-in-out;
+    }
+
+    .pic-1-container:hover {
+        transform: scale(1.07);
+    }
+
+    .picname {
+        display: flex;
+        width: 380px;
+        height: 400px;
+        position: relative;
+    }
+
+    .pic-1-container h3 {
+        position: relative;
+        top: -15px;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+    }
+
+    .pic-1-container p {
+        position: relative;
+        top: -30px;
+        text-align: right;
+        padding: 0px 6px;
+    }
+
+    .pic-2-container {
+        /* border: 2px solid white; */
+        width: 380px;
+        /* display: flex; */
+        height: 500px;
+        position: absolute;
+        top: 106px;
+        left: 450px;
+        background-color: rgb(170, 75, 127);
+        transition: all .5s ease-in-out;
+    }
+
+    .pic-2-container:hover {
+        transform: scale(1.07);
+    }
+
+    .pic-2-container img {
+        display: flex;
+        width: 380px;
+        height: 400px;
+        position: relative;
+    }
+
+    .pic-2-container p {
+        position: relative;
+        top: -30px;
+        text-align: right;
+        padding: 0px 6px;
+    }
+
+    .pic-2-container h3 {
+        position: relative;
+        top: -15px;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+    }
+
+    .pic-3-container {
+        /* border: 2px solid white; */
+        width: 380px;
+        /* display: flex; */
+        height: 500px;
+        position: absolute;
+        top: 106px;
+        left: 860px;
+        background-color: rgb(170, 75, 127);
+        transition: all .5s ease-in-out;
+    }
+
+    .pic-3-container:hover {
+        transform: scale(1.07);
+    }
+
+    .pic-3-container img {
+        display: flex;
+        width: 380px;
+        height: 400px;
+        position: relative;
+    }
+
+    .pic-3-container p {
+        position: relative;
+        top: -30px;
+        text-align: right;
+        padding: 0px 6px;
+    }
+
+    .pic-3-container h3 {
+        position: relative;
+        top: -15px;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+    }
+
+    .fourth-container {
+        position: absolute;
+        display: flex;
+        /* border: 2px solid red; */
+        top: 1389px;
+        width: 98.3vw;
+        height: 100vh;
+        box-shadow: inset 5px 5px 10px rgb(54, 40, 40), inset -5px -5px 10px rgb(54, 40, 40);
+
+    }
+
+    .fourth-container::before {
+        /* background-color: thistle;
+        content: "";
+        z-index: -3; */
+        content: "";
+        background-image: url(contact.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: fixed;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        opacity: 0.3;
+    }
+
+    .center-image img {
+        display: flex;
+        height: 350px;
+        width: 450px;
+        position: relative;
+        top: 40px;
+        left: 430px;
+        justify-items: center;
+        align-items: center;
+        z-index: 5;
+    }
+
+    .center-image pre {
+        /* border: 2px solid red; */
+        position: relative;
+        top: -230px;
+        left: 160px;
+        font-size: 38px;
+        /* width: 100vw; */
+        display: block;
+        font-weight: bold;
+        color: white;
+        z-index: 6;
+    }
+
+    .airplane-1 {
+        display: flex;
+        width: 200px;
+        height: 150px;
+        position: absolute;
+        top: 100px;
+        left: 40px;
+        animation: adeel 2s ease-in-out 0.1s 1 normal forwards;
+        z-index: -1;
+    }
+
+    @keyframes adeel {
+        0% {
+            top: 100px;
+            left: 0px;
+        }
+
+        100% {
+            top: 100px;
+            left: 900px;
+            display: none;
+        }
+
+
+    }
+
+    .airplane-2 {
+        display: flex;
+        width: 200px;
+        height: 150px;
+        position: absolute;
+        top: 100px;
+        left: 40px;
+        animation: rao 3s ease-in-out 0.1s 1 normal forwards;
+        z-index: -1;
+    }
+
+    @keyframes rao {
+        0% {
+            top: 100px;
+            left: 900px;
+        }
+
+        25% {
+            top: 100px;
+            left: 0px;
+            /* visibility: hidden; */
+
+
+        }
+
+
+    }
+
+    .fouthcon-para p {
+        /* border: 2px solid red; */
+        display: flex;
+        position: absolute;
+        align-items: flex-end;
+        margin: auto;
+        justify-content: center;
+        top: 430px;
+        padding: 10px 8px;
+        color: white;
+        text-align: end;
+        left: 110px;
+        width: 980px;
+        line-height: 1.9;
+    }
+
+    .fifth-container {
+        /* border: 2px solid red; */
+        position: absolute;
+        top: 2100px;
+        width: 98.4vw;
+        height: 89vh;
+        color: white;
+        background-color: black;
+        box-shadow: -5px -5px 10px rgb(71, 66, 66);
+    }
+
+    .sms-form {
+        /* border: 2px solid green; */
+        position: absolute;
+        top: 20px;
+        left: 830px;
+        width: 400px;
+        height: 500px;
+        background-color: rgb(148, 143, 143);
+        border-radius: 60px;
+        box-shadow: 5px 5px 10px rgb(71, 66, 66), -5px -5px 10px rgb(71, 66, 66);
+
+
+    }
+
+    .sms-form input {
+        display: block;
+        margin: 30px auto;
+        width: 360px;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        top: 0px;
+        position: relative;
+        padding: 20px 10px;
+        background-color: white;
+        color: black;
+        border-radius: 50px;
+        outline: none;
+        font-weight: 400;
+        border: none;
+    }
+
+    textarea {
+        position: relative;
+        top: 0px;
+        left: 20px;
+        padding-top: 22px 16px;
+        color: black;
+        width: 355px;
+        border-radius: 50px;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        resize: none;
+        margin: auto;
+        outline: none;
+    }
+
+    .fifth-container button {
+        position: relative;
+        top: 35px;
+        left: 127px;
+        outline: none;
+        padding: 18px 55px;
+        margin: auto;
+        background-color: rgb(190, 40, 123);
+        border-radius: 50px;
+        border: none;
+        font-size: 15px;
+        transition: all 01s ease;
+        cursor: pointer;
+    }
+
+    .fifth-container button:hover {
+        background-color: rgb(151, 59, 110);
+        
+    }
+
+    .self-intro img {
+        display: flex;
+        width: 200px;
+        height: 220px;
+        position: relative;
+        top: 80px;
+        left: 150px;
+    }
+
+    .self-about {
+        position: relative;
+        top: -140px;
+        left: 370px;
+        width: 450px;
+        color: white;
+        line-height: 1.6;
+        /* border: 2px solid red; */
+
+    }
+
+    .self-about h3 {
+        font-size: 2.5em;
+        color: black;
+        color: white;
+        text-shadow: 2px 2px 5px rgb(199, 189, 189);
+    }
+
+    .self-about p {
+        font-size: 18px;
+        color: rgb(54, 46, 46);
+        position: relative;
+        top: -25px;
+        text-align: end;
+        color: white;
+        
+    }
+
+    .little p {
+        width: 680px;
+        /* border: 2px solid red; */
+        position: relative;
+        left: 140px;
+        top: -80px;
+        font-size: 18px;
+        color: black;
+        color: white;
+        line-height: 1.6;
+    }
+
+    footer {
+        position: absolute;
+        top: 2684px;
+        left: 0px;
+        display: flex;
+        color: white;
+        /* border: 2px solid red; */
+        width: 98.6vw;
+        height: 80vh;
+        background-color: #1b1b1a;
+        /* background-color: rgb(151, 59, 110); */
+    }
+
+    .contact-container {
+        background-color: black;
+        /* border: 2px solid red; */
+        display: flex;
+        position: absolute;
+        top: 70px;
+        left: 300px;
+        width: 850px;
+        height: 65px;
+    }
+
+    .contact img {
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        top: 15px;
+        left: 18px;
+
+    }
+
+    .contact span {
+        display: flex;
+        position: relative;
+        left: 70px;
+        top: 25px;
+    }
+
+    .mail {
+        position: relative;
+        left: 150px;
+    }
+
+    .mail img {
+        position: relative;
+        display: flex;
+        top: 17px;
+        width: 40px;
+        height: 33px;
+    }
+
+    .mail span {
+        display: flex;
+        position: relative;
+        left: 55px;
+        top: -7px;
+    }
+
+    .location {
+        position: relative;
+        left: 260px;
+        top: 10px;
+    }
+
+    .location img {
+        width: 30px;
+    }
+
+    .location span {
+        position: relative;
+        left: 10px;
+        top: -10px;
+    }
+
+    .main-menu {
+        /* border: 2px solid red; */
+        width: 200px;
+        height: 260px;
+        position: absolute;
+        top: 150px;
+        left: 500px;
+    }
+
+    .main-menu h3 {
+        /* text-align: center; */
+        font-size: 1.7em;
+    }
+
+    .main-menu li {
+        /* list-style: none; */
+        padding: 6px;
+        font-size: 18px;
+        list-style-type: square;
+        color: rgb(236, 82, 170);
+    }
+
+    .main-menu li a {
+        text-decoration: none;
+        color: white;
+        transition: all .8s ease;
+    }
+
+    .main-menu li a:hover {
+        color: rgb(236, 82, 170);
+    }
+
+    .about-tour {
+        position: relative;
+        top: 150px;
+        left: 50px;
+        /* border: 2px solid red; */
+        width: 350px;
+        height: 350px;
+    }
+
+    .about-tour h3 {
+
+        font-size: 1.7em;
+    }
+
+    .about-tour p {
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    .mail-now {
+        /* border: 2px solid red; */
+        height: 340px;
+        position: relative;
+        top: 160px;
+        left: 424px;
+        display: block;
+        width: 400px;
+    }
+
+    .mail-now h3 {
+        text-align: center;
+        position: relative;
+        top: -10px;
+        font-size: 1.7em;
+    }
+
+    .mail-now input {
+        display: block;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width: 260px;
+        position: relative;
+        top: 10px;
+        margin: 30px auto;
+        padding: 12px 0px;
+        outline: none;
+        border: none;
+    }
+
+    .mail-now button {
+        position: relative;
+        margin: auto;
+        top: 20px;
+        left: 140px;
+        padding: 10px 35px;
+        font-size: 17px;
+        font-weight: bold;
+        background-color: rgb(236, 82, 170);
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        outline: none;
+        border: none;
+transition: all 0.8s ease;
+    }
+
+    .mail-now button a {
+        color: black;
+        text-decoration: none;
+    }
+    .mail-now button:hover{
+        background-color: rgb(194, 84, 146);
+    }
+
+</style>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <div class="nav-left">
+                    <img src="img/logo.png " alt="Loading Error">
+                </div>
+                <div class="nav-right">
+                    <a href="www.facebook.com"><img class="logo-img" src="img/fb.png" title="Visit to our FB page"
+                            alt="Loading Error"></a>
+                    <img class="logo-img" src="img/gp.png" title="Visit to our GP" alt="Loading Error">
+                    <img class="logo-img" src="img/tw.png" title="Visit to tw" alt="Loading Error">
+                </div>
+                <div class="nav-center">
+                    <ul>
+                        <li> <a href="#" class="active"> Home</a></li>
+                        <li> <a href="#"> About</a></li>
+                        <li> <a href="#">Service</a> </li>
+                        <li> <a href="#">Travel Agency</a> </li>
+                        <li> <a href="#">Contact Us </a> </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="header-plane">
+        <img src="img/airplane.png" alt="Loading error">
+    </div>
+    <div class="container">
+        <h1>
+            Amazing Places 10 Days Tour
+        </h1>
+        <div>
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit sint molestias exercitationem quo
+                quis. Ipsum deserunt quibusdam ipsam, illum repudiandae, maxime fugit reprehenderit sint aliquid quos
+                sapiente, eligendi nesciunt beatae. ;</p>
+        </div>
+        <div>
+            <!-- <button > -->
+            <a class="btn" href="#">BOOK NOW</a>
+            <!-- </button> -->
+        </div>
+    </div>
+    <div class="sec-container">
+        <div class="h2">
+            <div>
+                <h2>Winter Holidays</h2>
+
+            </div>
+            <div>
+                <p class="prob">Here you can insert any informative data about the winter holidays</p>
+            </div>
+            <div class="main-box">
+                <div class="box-1">
+                    <h1>ENGOY HOLIDAYS</h1>
+                    <p class="third-p">
+                        It is a long established fact that a reader will be distracted by the readable content of a page
+                        when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+                        distribution of letters, as opposed to using 'Content here, content here', making it look like
+
+                    </p>
+                    <button class="btn-2">Book Now</b utton>
+                </div>
+                <div class="inform">
+                    <div class="left-1">
+                        <img src="img/img4.jpg" title="Get Location Now" alt="Loading Error">
+                        <h3>SIGHTSEEING</h3>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a
+                            page</p>
+                    </div>
+                    <div class="left-2">
+                        <img src="img/img1.jpg" alt="loading error">
+                        <h3>READT TO STAY</h3>
+                    </div>
+                    <div class="right-1">
+                        <img src="img/img4.jpg" alt="loading error">
+                        <h3>SHOPS AND BOUTIQUES</h3>
+                    </div>
+                    <div class="right-2">
+                        <img src="img/img2.jpg" alt="loding error">
+                        <h3>RESTAURANTS</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="third-container">
+            <div class="hd">
+                <H3>Enjoy Resort</H3>
+                <P>It is a long established fact that a reader will be distracted by the readable content of a o</P>
+            </div>
+            <div class="pic-1-container">
+                <img class="picname" src="img/pic3.jpg" alt="loding error">
+
+                <h3>OFFERS AVAILABLE</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non atque consectetur quibusdam a corporis
+                    rem sunt quisquam quos ducimus. Sunt.</p>
+
+            </div>
+            <div class="pic-2-container">
+                <img class="pic-2" src="img/pic4.jpg" alt="loding error">
+                <h3>LIFE STYLE</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, explicabo quam ducimus illum qui
+                    quo accusantium dolorem rerum beatae.</p>
+            </div>
+            <div class="pic-3-container">
+                <img class="pic-3" src="img/pic2.jpg" alt="loding error">
+                <h3>SECURITY</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, explicabo quam ducimus illum qui
+                    quo accusantium dolorem rerum beatae.</p>
+            </div>
+
+        </div>
+
+        <div class="fourth-container">
+            <div class="center-image">
+                <img src="img/pic1.png" alt="loding error">
+                <pre>                     ENJOY
+                      ALL
+                     WORLD</pre>
+            </div>
+            <div class="airplane-1">
+                <img src="img/airplane.png" alt="loding error">
+            </div>
+            <div class="airplane-2">
+                <img src="img/airplane.png" alt="loding error">
+            </div>
+            <div class="fouthcon-para">
+                <div>
+                    <h4 style="font-weight: bold; color:  rgb(170, 75, 127);">Lets Enjoy The LIFE</h4>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed iste totam placeat nobis a molestias
+                    magnam error tenetur quo enim dicta distinctio odit quae id maxime ab, explicabo culpa quisquam.
+                    Velit eveniet assumenda amet illo magnam eius, eligendi itaque vero, dignissimos molestias porro
+                    aliquid omnis corrupti, hic voluptate laboriosam sequi! Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Recusandae, nulla. Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam,
+                    voluptatum? Vitae labore animi quisquam eveniet inventore blanditiis quia id minima voluptas velit
+                    earum cupiditate, quod, autem sapiente repellat odio ad. Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Id nulla magni non deserunt autem dolore hic facere architecto quasi unde.</p>
+            </div>
+        </div>
+        <div class="fifth-container">
+            <form action="bakend.php">
+                <div class="massage">
+                    <div class="sms-form">
+                        <input type="text" placeholder="Name">
+                        <input type="email" placeholder="Email">
+                        <input type="number" placeholder="Phone">
+                        <textarea placeholder="Massage" name="Massage" id="massage" cols="50" rows="7"></textarea>
+                        <button>SEND</button>
+                    </div>
+                </div>
+            </form>
+            <div class="self-intro">
+                <img src="img/adeel1.jpg" alt="Loading Error">
+                <div class="self-about">
+                    <h3>RAO ADEEL</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur modi aliquid cum tempora est
+                        atque animi quisquam esse qui autem.
+                    </p>
+                </div>
+                <div class="little">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae mollitia totam voluptatum
+                        commodi dolores veritatis odio corrupti nam sint, repellat suscipit temporibus dolor, obcaecati
+                        id ullam aperiam? Pariatur quasi odio dignissimos, veritatis nemo reiciendis in porro molestiae
+                        libero doloribus asperiores? Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio,
+                        ducimus. Eveniet, culpa eos officia vitae libero at nulla dignissimos quam maiores, autem ea
+                        facere? Veritatis quaerat quod praesentium inventore consequatur.</p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="contact-container">
+                <div class="contact">
+                    <img src="img/i1.png" alt="Loading error">
+                    <span>(+923093246610)</span>
+                </div>
+                <div class="mail">
+                    <img src="img/i2.png" alt="Loading error">
+                    <span>adnasirkbwGmail.com</span>
+                </div>
+                <div class="location">
+                    <img src="img/i3.png" alt="Loading error">
+                    <span><em>Street No.13 Kabirwala khanewal </em></span>
+                </div>
+            </div>
+            <div class="main-menu">
+                <h3>Menu</h3>
+                <div>
+                    <ul type="square ">
+                        <li> <a href="#" class="active"> Home</a></li>
+                        <li> <a href="#"> About</a></li>
+                        <li> <a href="#">Service</a> </li>
+                        <li> <a href="#">Travel Agency</a> </li>
+                        <li> <a href="#">Contact Us </a> </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="about-tour">
+                <H3>About Go Tours</H3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt molestias corporis vitae laudantium
+                    ullam quos perspiciatis. Quasi doloremque enim hic, incidunt consequuntur magnam, nemo voluptatibus
+                    ipsum voluptatum at aliquam odit? Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Nesciunt, veritatis?</p>
+            </div>
+            <div class="mail-now">
+                <h3>GO NOW</h3>
+                <input type="text" placeholder="Enter Your Name">
+                <input type="email" placeholder="Enter Your Email">
+                <button><a href="#">Submite</a></button>
+            </div>
+        </footer>
+</body>
+
+</html>
